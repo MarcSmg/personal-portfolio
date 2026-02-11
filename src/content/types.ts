@@ -1,5 +1,5 @@
 export type AboutContent = {
-    intro: string;
+    education: string;
     background: string;
     interests: string;
     objective: string;
@@ -53,9 +53,21 @@ export type ProjectContent = {
     };
 };
 
+// export type SkillsContent = {
+//     languages: string[];
+//     frontend: string[];
+//     backend: string[];
+//     tools: string[];
+// };
+
+export type SkillObject = {
+    name: string,
+    level?: number
+};
+
 export type SkillsContent = {
-    languages: string[];
-    frontend: string[];
-    backend: string[];
-    tools: string[];
+    languages: SkillObject[];
+    frontend: SkillObject[];
+    backend: SkillObject[];
+    tools: SkillObject[];
 };
