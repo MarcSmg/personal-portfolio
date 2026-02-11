@@ -1,0 +1,87 @@
+/*
+CSS reset / normalize
+base font family
+background color
+text color
+CSS variables (colors, spacing, fonts)
+*/
+@import "tailwindcss";
+
+@theme {
+  --text-h1: 3rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  
+  --color-accent: var(--accent);
+  --color-accent-content: var(--accent-content);
+
+  --color-brand: var(--brand);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-emphasis: var(--brand-emphasis);
+
+  --color-ui-bg: var(--ui-bg);
+  --color-ui-surface: var(--ui-surface);
+  --color-ui-surface-dark: var(--ui-surface-dark);
+  --color-ui-border: var(--ui-border);
+  --color-ui-dark: var(--ui-dark);
+}
+
+:root {
+
+  /*BRAND*/
+  --brand: #478cfb; /* Main identity color */
+  --brand-muted: #656567; /* Soft backgrounds/hover */
+  --brand-emphasis: #153faa; /* Active states/headers */
+
+  /*ACCENT*/
+  --accent: #0d51fb; /* High-contrast (CTAs, warnings) */
+  --accent-content: #ece8e8; /* Text color to use on top of accent */
+
+  /*NEUTRALS*/
+  --ui-bg: #1f1f1f; /* Page background */
+  --ui-surface: #343537; /* Card/Sidebar background */
+  --ui-surface-dark: #282727; 
+  --ui-border: #868d93;/* Dividers/Inputs */
+  --ui-dark: #191919; 
+} 
+
+body {
+  margin: 0;
+  font-family: "Work Sans",system-ui, sans-serif;
+}
+
+html {
+  background: var(--ui-dark);
+}
+
+body {
+  background: linear-gradient(to right, var(--ui-surface-dark), var(--ui-bg));
+  overflow-x: hidden;
+} 
+
+@layer base {
+
+  * {
+    @apply text-accent-content
+  }
+
+  h1 {
+    @apply text-h1 font-semibold;
+  }
+
+  h2 {
+    @apply text-h2;
+  }
+  h3 {
+    @apply text-h3;
+  }
+
+  /* body {
+    @apply bg-ui-bg;
+  } */
+
+  p {
+    @apply text-lg ;
+  }
+  
+}
