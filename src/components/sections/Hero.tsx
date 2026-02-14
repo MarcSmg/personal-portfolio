@@ -2,6 +2,7 @@ import { useContent } from "../../context/ContentContext"
 import Avatar from "../avatar/Avatar";
 import Button from "../ui/Button";
 import { ArrowRight, Download } from "lucide-react";
+import { handleScrollIntoView } from "@/utils/handleScrollIntoView";
 
 const Hero = () => {
   const { content } = useContent();
@@ -19,8 +20,10 @@ const Hero = () => {
         </div>
     
         <div className="flex flex-col w-full gap-10 lg:flex-row">
-          <Button styles=" flex gap-2 justify-between items-center text-lg font-semibold py-5 px-8 transition" variant="primary">See my projects<ArrowRight className="size-5" /></Button> 
-          <Button styles=" flex gap-2 justify-between items-center text-lg font-semibold py-5 px-8 hover:bg-ui-surface transition" variant="secondary">Download my resume <Download className="size-5" /></Button>         
+          <a href="" onClick={(e) => handleScrollIntoView(e, "#projects")} >
+            <Button styles=" flex gap-5 justify-between items-center text-lg font-semibold py-5 px-8 transition" variant="primary">See my projects<ArrowRight className="size-8 2xl:size-5"/></Button> 
+          </a>
+          <Button styles=" flex gap-5 justify-between items-center text-lg font-semibold py-5 px-8 hover:bg-ui-surface transition" variant="secondary">Download my resume <Download className="size-8 2xl:size-5" /></Button>         
         </div>
       </div>
     </section>

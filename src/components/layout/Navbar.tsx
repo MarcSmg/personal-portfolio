@@ -1,17 +1,65 @@
 import { useInView } from "@/hooks/useInVIew";
 import NavLink from "./NavLink"
 import { House, Presentation, BookOpenText, BrainCircuit, Mail } from "lucide-react"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { handleScrollIntoView } from "@/utils/handleScrollIntoView";
 
 const Navbar = () => {
-  const {ref, isVisible} = useInView();
+  const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav ref={ref} className=" flex w-full sticky top-0 z-50 justify-center">
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+   const isThrottled = useRef(false);
 
-        <div className={`${isVisible ? 'animate-fade-in-down' : 'opacity-0'}  hidden fixed top-0 mt-10 px-8 py-3 rounded-lg gap-10  justify-between shadow-black shadow-lg/50 bg-linear-to-r from-brand-muted from-[-60%] via-ui-surface to-brand-muted lg:flex`}>
+  useEffect(() => {
+    setMounted(true);
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+
+      if (isThrottled.current) return;
+
+      isThrottled.current = true;
+      // console.log("Handling scroll");
+
+      setTimeout(() => {
+        // console.log("Doing the massive job");
+        const currentScrollY = window.scrollY;
+
+        if (Math.abs(currentScrollY - lastScrollY.current) < 50) {
+          isThrottled.current = false;
+          return;
+        }
+
+        if (
+          currentScrollY > lastScrollY.current &&
+          currentScrollY > 80
+        ) {
+
+          setVisible(false);
+        } else {
+          setVisible(true);
+        }
+
+        lastScrollY.current = currentScrollY;
+        isThrottled.current = false;
+
+      }, 100);
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [])
+
+  return (
+    <nav className={` flex w-full fixed top-0 z-50 justify-center 
+      ${mounted ? 'animate-fade-in-down' : 'opacity-0'} 
+      ${visible ? "animate-fade-in-down" : "animate-fade-out-up"}
+      `}
+    >
+        <div className={`
+          hidden top-0 mt-5 px-8 py-3 rounded-lg gap-10  justify-between shadow-black shadow-lg/50 bg-linear-to-r from-brand-muted from-[-60%] via-ui-surface to-brand-muted lg:flex`}>
           <NavLink url="#hero"><House size={20}/>Home</NavLink>
           <NavLink url="#projects"><Presentation size={20}/>Projects</NavLink>
           <NavLink url="#about"><BookOpenText size={20}/>About Me</NavLink>
@@ -70,12 +118,12 @@ const Navbar = () => {
             ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}
           `}
         >
-          <ul className="flex flex-col px-4 text-lg">
-            <li className="py-3 px-5"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#hero")}><House size={20}/>Home</a> </li>
-            <li className="py-3 px-5"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#projects")}><Presentation size={20}/>Projects</a> </li>
-            <li className="py-3 px-5"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#about")}><BookOpenText size={20}/>About Me</a> </li>
-            <li className="py-3 px-5"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#skills")}><BrainCircuit size={20}/>Skills</a> </li>
-            <li className="py-4 px-5"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#contact")}><Mail size={20}/>Contact</a> </li>
+          <ul className="flex flex-col px-2 py-4 text-lg">
+            <li className="py-3 px-5 hover:bg-brand-muted rounded-lg transition"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#hero")}><House size={20}/>Home</a> </li>
+            <li className="py-3 px-5 hover:bg-brand-muted rounded-lg transition"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#projects")}><Presentation size={20}/>Projects</a> </li>
+            <li className="py-3 px-5 hover:bg-brand-muted rounded-lg transition"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#about")}><BookOpenText size={20}/>About Me</a> </li>
+            <li className="py-3 px-5 hover:bg-brand-muted rounded-lg transition"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#skills")}><BrainCircuit size={20}/>Skills</a> </li>
+            <li className="py-3 px-5 hover:bg-brand-muted rounded-lg transition"><a className="flex gap-5 items-center" href="" onClick={(e) => handleScrollIntoView(e, "#contact")}><Mail size={20}/>Contact</a> </li>
           </ul>
         </div>
     </nav>

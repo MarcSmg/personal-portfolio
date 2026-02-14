@@ -25,6 +25,7 @@ CSS variables (colors, spacing, fonts)
   --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
   --animate-fade-in-down: fade-in-down 0.3s ease-out forwards;
   --animate-fade-in-right: fade-in-right 0.5s ease-out forwards;
+  --animate-fade-out-up: fade-out-up 0.2s ease-in forwards;
 
   @keyframes fade-in-up {
     from {
@@ -34,6 +35,15 @@ CSS variables (colors, spacing, fonts)
     to {
       transform: translateY(0);
       opacity: 1;
+    }
+  }
+
+  @keyframes fade-out-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
     }
   }
 

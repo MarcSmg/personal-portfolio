@@ -5,7 +5,7 @@ type ButtonVariant = "primary" | "secondary" | "default";
 type ButtonProps = {
     variant?: ButtonVariant,
     children: React.ReactNode,
-    styles?: string
+    styles?: string,
 }
 
 const Button = ({variant = "default", children, styles = ""}: ButtonProps) => {
@@ -19,7 +19,7 @@ const Button = ({variant = "default", children, styles = ""}: ButtonProps) => {
     }
 
     return (
-        <button className={`${baseStyles} ${variantStyles[variant]} rounded-lg cursor-pointer`}>
+        <button className={`${baseStyles} ${variantStyles[variant]} ${baseStyles.includes("rounded") ? "" : "rounded-lg" } cursor-pointer`}>
             {children}
         </button>
     )
