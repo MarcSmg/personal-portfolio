@@ -16,24 +16,27 @@ const ProjectCard = ({project} : ProjectProps) => {
           opacity-0
           bg-ui-surface border border-brand-muted p-5 rounded-2xl
           shadow-brand-emphasis
-          hover:scale-103 hover:border-brand hover:shadow-lg transition-all duration-300
+          hover:-translate-y-1 hover:shadow-lg/90 transition-all duration-300
         `
       }>
         <div></div>
         <div className="flex flex-col gap-2">
           <div>
             <h3>{project.name}</h3>
+            <br />
             <p>{project.headline}</p>
             <p>{project.description}</p>            
           </div>
 
-          <div className="flex gap-2 w-fit py-3">
+          <div className="flex gap-5 w-fit py-3">
             {project.tech.map((t) => <span className="bg-brand-muted px-2
              py-1 rounded-full text-sm" key={t}>{t}</span>)}
           </div>            
           <div className="flex items-center justify-between">
             <Button variant="primary" styles=" flex gap-1 text-sm font-semibold px-5 py-3 transition">View Details<ArrowUpRight size={20} /> </Button>
-            <Button variant="secondary" styles=" p-2 hover:brightness-120 transition"><FaGithub className="fill-white" size={25}/></Button>              
+            <a href={project.links?.github} target="_blank">
+              <Button variant="secondary" styles=" p-2 hover:brightness-120 transition"><FaGithub className="fill-white" size={25}/></Button>              
+            </a>
           </div>
 
         </div>

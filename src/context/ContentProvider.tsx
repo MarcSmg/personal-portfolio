@@ -24,9 +24,8 @@ export function ContentProvider({children}: {children: React.ReactNode}) {
     }
 
     return (
-        <ContentContext.Provider value={value}>
+        <ContentContext value={value}>
             {children}
-        </ContentContext.Provider>
-
+        </ContentContext>
     )
 }

@@ -7,9 +7,10 @@ import { handleScrollIntoView } from "@/utils/handleScrollIntoView";
 const Hero = () => {
   const { content } = useContent();
   const heroContent = content.heroContent;
+  const buttonsStyle = "flex gap-5 justify-between items-center py-5 px-5 w-full text-lg font-semibold transition";
 
   return (
-    <section id="hero" className=" flex flex-col justify-center items-center gap-25 py-10 lg:flex-row lg:px-0 lg:py-50 " >
+    <section id="hero" className=" flex flex-col justify-center items-center gap-25 py-20 lg:flex-row lg:px-0 lg:py-50 " >
       <Avatar/>
       <div className="flex flex-col justify-center items-center">
         <div className=" flex flex-col mb-10 justify-center items-center text-center lg:text-left lg:items-start">
@@ -19,11 +20,11 @@ const Hero = () => {
           <h3> { heroContent.tagline } </h3>        
         </div>
     
-        <div className="flex flex-col w-full gap-10 lg:flex-row">
-          <a href="" onClick={(e) => handleScrollIntoView(e, "#projects")} >
-            <Button styles=" flex gap-5 justify-between items-center text-lg font-semibold py-5 px-8 transition" variant="primary">See my projects<ArrowRight className="size-8 2xl:size-5"/></Button> 
+        <div className="flex flex-col w-full gap-10 xl:flex-row">
+          <a className="w-full" href="" onClick={(e) => handleScrollIntoView(e, "#projects")} >
+            <Button styles={` ${buttonsStyle}`} variant="primary">See my projects<ArrowRight className="size-8 2xl:size-5"/></Button> 
           </a>
-          <Button styles=" flex gap-5 justify-between items-center text-lg font-semibold py-5 px-8 hover:bg-ui-surface transition" variant="secondary">Download my resume <Download className="size-8 2xl:size-5" /></Button>         
+          <Button styles={` ${buttonsStyle} hover:bg-ui-surface`} variant="secondary">Download my resume <Download className="size-8 2xl:size-5" /></Button>         
         </div>
       </div>
     </section>

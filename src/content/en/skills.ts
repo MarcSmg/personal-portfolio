@@ -12,21 +12,23 @@ export const skillsContent: SkillsContent = {
     languages: [
         {name: "JavaScript", level: 80},
         {name: "TypeScript", level: 60},
-        {name: "HTML", level: 90},
-        {name: "CSS", level: 90},
-        {name: "Python", level: 80},
-        {name: "Java", level: 70},
+        {name: "HTML", level: 80},
+        {name: "CSS", level: 70},
+        {name: "Python", level: 70},
+        {name: "Java", level: 60},
         {name: "C", level: 80},
-        {name: "C++", level: 70},
+        {name: "C++", level: 60},
+        {name: "PHP", level: 60}
     ],
     frontend: [
-        {name: "React", level: 85},
-        {name: "Vue", level: 75},
+        {name: "React", level: 80},
+        {name: "Vue", level: 65},
     ],
     backend: [
-        {name: "Django", level: 75},
+        {name: "Django", level: 65},
         {name: "Flask", level: 60},
         {name: "Express", level: 80},
+        {name: "Laravel", level: 65},
         {name: "REST API", level: 80}
     ],
     tools: [

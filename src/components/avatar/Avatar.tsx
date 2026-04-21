@@ -14,24 +14,30 @@ const Avatar = () => {
 
   return (
     <div ref={ref} className={` ${isVisible ? 'animate-fade-in-right' : ''} flex flex-col w-[90%] justify-center items-center gap-4 px-5 py-7 opacity-0 bg-linear-to-r from-brand-muted from-[-150%] to-ui-surface rounded-2xl lg:w-[40%]`}>
-      <img className="rounded-2xl size-[80%] lg:size-full" src={pfp} alt="" />
+      
+      <img className="rounded-2xl size-[80%] object-cover lg:size-80" src={pfp} alt="" />
       
       <ContactLink styles="relative px-3 py-3 flex items-center justify-between gap-2 before:absolute before:inset-10 before:rounded-sm before:bg-accent/80 before:opacity-0 before:transition-all hover:before:opacity-100 hover:before:inset-0 duration-100" url={contactContent.email}>
+        
         <MdMail className="fill-white relative size-6"/>
         <span className="relative">dossagaby@gmail.com</span> 
+
       </ContactLink>
+
       <div className="flex justify-between gap-10 px-3">
-        <ContactLink styles={`${contactLinkStyles}`} url={contactContent.linkedin}>
+
+        <ContactLink styles={`${contactLinkStyles} p-3`} url={contactContent.linkedin}>
           <LuLinkedin className=" relative size-6"/>
         </ContactLink>
 
-        <ContactLink styles={`${contactLinkStyles}`} url={contactContent.github}>
+        <ContactLink styles={`${contactLinkStyles} p-3`} url={contactContent.github}>
           <LuGithub className=" relative size-6"/>
         </ContactLink>
 
-        <ContactLink styles={`${contactLinkStyles}`} url={contactContent.whatsapp}>
+        <ContactLink styles={`${contactLinkStyles} p-3`} url={contactContent.whatsapp}>
           <FaWhatsapp className="fill-white relative size-6"/>
         </ContactLink>
+
       </div>
     </div>
   )

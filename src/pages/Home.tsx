@@ -8,10 +8,10 @@ const Home = () => {
 
   return (
 
-    <div className="flex flex-col items-center justify-center max-sm:px-[5%] px-[20%] md:px-40 lg:px-80">
+    <div className="flex flex-col items-center justify-center max-sm:px-[5%] px-[20%] md:px-40 lg:px-20 m-0">
         <Hero/>
-        <Projects/>
         <About/>
+        <Projects/>
         <Skills/>
         <Contact/>
     </div>
