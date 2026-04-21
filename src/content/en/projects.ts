@@ -20,9 +20,10 @@ export const projectsContent: ProjectContent[] = [
             Fretwise is being developed as a full-stack React application, 
             with particular attention to UI clarity, performance, and the correctness of musical logic.
         `,
-        status: "planned",
+        status: "in-progress",
         links: {
             github: "https://github.com/MarcSmg/fret-wise",
+            live: "https://fret-wise.vercel.app"
         }
     },
 ];
