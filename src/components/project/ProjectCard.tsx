@@ -44,12 +44,14 @@ const ProjectCard = ({ project }: ProjectProps) => {
         </div>
 
         <div className="flex items-center justify-between">
+          <div className="flex gap-5">
 
-          <a href={project.links?.live} target="_blank">
-            <Button variant="primary" styles=" flex gap-1 text-sm font-semibold px-5 py-3 transition">Live Demo<ArrowUpRight size={20} /> </Button>
-          </a>
+            <a href={project.links?.live} target="_blank">
+              <Button variant="primary" styles=" flex gap-1 text-sm font-semibold px-5 py-3 transition">Live Demo<ArrowUpRight size={20} /> </Button>
+            </a>
 
-          <Button variant="secondary" styles=" flex gap-1 text-sm font-semibold px-5 py-3 transition">View Details</Button>
+            <Button variant="secondary" styles=" flex gap-1 text-sm font-semibold px-5 py-3 transition">View Details</Button>
+          </div>
 
           <a href={project.links?.github} target="_blank">
             <Button variant="secondary" styles=" p-2 hover:brightness-120 transition"><FaGithub className="fill-white" size={25} /></Button>
