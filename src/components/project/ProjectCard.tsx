@@ -3,8 +3,6 @@ import type { ProjectContent } from "../../content/types"
 import Button from "../ui/Button"
 import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import { useState } from "react";
-import { ProjectDetailsFrame } from "./ProjectDetailsFrame";
 
 interface ProjectProps {
   project: ProjectContent,
@@ -18,7 +16,7 @@ const statuses = {
   "completed": "Completed"
 };
 
-const ProjectCard = ({ project, onOpenDetails, onCloseDetails }: ProjectProps) => {
+const ProjectCard = ({ project, onOpenDetails }: ProjectProps) => {
   const { ref, isVisible } = useInView();
 
 
