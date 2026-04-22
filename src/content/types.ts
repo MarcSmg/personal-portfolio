@@ -51,6 +51,7 @@ export type ProjectContent = {
         github?: string;
         live?: string;
     };
+    
 };
 
 // export type SkillsContent = {

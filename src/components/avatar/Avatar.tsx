@@ -17,7 +17,7 @@ const Avatar = () => {
       
       <img className="rounded-2xl size-[80%] object-cover lg:size-80" src={pfp} alt="" />
       
-      <ContactLink styles="relative px-3 py-3 flex items-center justify-between gap-2 before:absolute before:inset-10 before:rounded-sm before:bg-accent/80 before:opacity-0 before:transition-all hover:before:opacity-100 hover:before:inset-0 duration-100" url={contactContent.email}>
+      <ContactLink styles="relative px-3 py-3 flex items-center justify-between gap-2 before:absolute before:inset-10 before:rounded-lg before:bg-accent/80 before:opacity-0 before:transition-all hover:before:opacity-100 hover:before:inset-0 duration-100" url={contactContent.email}>
         
         <MdMail className="fill-white relative size-6"/>
         <span className="relative">dossagaby@gmail.com</span> 

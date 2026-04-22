@@ -19,6 +19,8 @@ import FlaskIcon from "./flask.svg"
 import TSIcon from "./typescript.svg"
 import JavaIcon from "./java.svg"
 import GMailIcon from "./gmail.svg"
+import PHPIcon from "./php.svg"
+import Laravelicon from "./laravel.svg"
 
 
 export const iconMap: Record<string, string> = {
@@ -32,6 +34,7 @@ export const iconMap: Record<string, string> = {
     django: DjangoIcon,
     flask: FlaskIcon,
     express: ExpressIcon,
+    laravel: Laravelicon,
     c: CIcon,
     "c++": CPPIcon,
     html: HTMLIcon,
@@ -40,6 +43,7 @@ export const iconMap: Record<string, string> = {
     typescript: TSIcon,
     java: JavaIcon, 
     python: PythonIcon,
+    php: PHPIcon,
     restapi: RESTIcon, 
     git: GitIcon,
     postman: PostManIcon,

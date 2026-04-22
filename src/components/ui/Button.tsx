@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { type ComponentPropsWithRef } from 'react'
 
 type ButtonVariant = "primary" | "secondary" | "default";
 
-type ButtonProps = {
+interface ButtonProps extends ComponentPropsWithRef<"button"> {
     variant?: ButtonVariant,
     children: React.ReactNode,
     styles?: string,
 }
 
-const Button = ({variant = "default", children, styles = ""}: ButtonProps) => {
-    
-    const baseStyles = styles;
+const Button = ({ variant = "default", children, styles = "", onClick }: ButtonProps) => {
+
+    let baseStyles = styles;
+    baseStyles += baseStyles.includes("rounded") ? "" : " rounded-lg";
 
     const variantStyles: Record<ButtonVariant, string> = {
         "default": "",
@@ -19,7 +20,10 @@ const Button = ({variant = "default", children, styles = ""}: ButtonProps) => {
     }
 
     return (
-        <button className={`${baseStyles} ${variantStyles[variant]} ${baseStyles.includes("rounded") ? "" : "rounded-lg" } cursor-pointer`}>
+        <button
+            className={`${baseStyles} ${variantStyles[variant]} ${baseStyles} cursor-pointer`}
+            onClick={onClick}
+        >
             {children}
         </button>
     )

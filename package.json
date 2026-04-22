@@ -13,6 +13,7 @@
     "@fontsource/lato": "^5.2.7",
     "@fontsource/work-sans": "^5.2.8",
     "lucide-react": "^0.562.0",
+    "motion": "^12.38.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0"
