@@ -68,7 +68,7 @@ const Navbar = () => {
 
       <div className=" bg-ui-surface mx-auto flex w-full items-center justify-between px-4 py-3 lg:hidden">
         <div className="text-xl font-bold">
-          Marc SMG
+          Marc DOSSA
         </div>
 
         <button
