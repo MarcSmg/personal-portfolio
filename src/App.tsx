@@ -7,22 +7,22 @@ import Home from "./pages/Home"
 function App() {
   return (
     <>
-    <div className="text-white">
-      <ContentProvider>
-        <div className="flex flex-col min-h-screen items-center justify-center">
+      <div className="text-white">
+        <ContentProvider>
+          <div className="flex flex-col min-h-screen items-center justify-center z-0 relative">
 
-          <Navbar/>
+            <Navbar />
+            <Watermark />
 
-          <main className="grow z-0">
-            <Watermark/>
-            <Home/>
-          </main>
+            <main className="grow">
+              <Home />
+            </main>
 
-          <Footer/>     
+            <Footer />
 
-        </div>
-      </ContentProvider>
-    </div>
+          </div>
+        </ContentProvider>
+      </div>
     </>
   )
 }
