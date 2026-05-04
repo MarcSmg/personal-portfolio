@@ -2,6 +2,7 @@ import NavLink from "./NavLink"
 import { House, Presentation, BookOpenText, BrainCircuit, Mail } from "lucide-react"
 import { useEffect, useRef, useState } from "react";
 import { handleScrollIntoView } from "@/utils/handleScrollIntoView";
+import FullLogo from "@/assets/icons/watermark-full.svg";
 
 const Navbar = () => {
   const [mounted, setMounted] = useState(false);
@@ -68,7 +69,7 @@ const Navbar = () => {
 
       <div className=" bg-ui-surface mx-auto flex w-full items-center justify-between px-4 py-3 lg:hidden">
         <div className="text-xl font-bold">
-          Marc DOSSA
+          <img src={FullLogo} alt="Logo" className="w-32 h-auto" />
         </div>
 
         <button
