@@ -1,5 +1,6 @@
 import Footer from "./components/layout/Footer"
 import Navbar from "./components/layout/Navbar"
+import { Watermark } from "./components/layout/Watermark"
 import { ContentProvider } from "./context/ContentProvider"
 import Home from "./pages/Home"
 
@@ -12,7 +13,8 @@ function App() {
 
           <Navbar/>
 
-          <main className="grow">
+          <main className="grow z-0">
+            <Watermark/>
             <Home/>
           </main>
 
