@@ -11,7 +11,7 @@ const Hero = () => {
   const buttonsStyle = "flex gap-5 justify-between items-center py-5 px-5 w-full text-lg font-semibold transition";
 
   return (
-    <section id="hero" className=" flex flex-col justify-center items-center gap-25 mb-40 lg:flex-row lg:px-0 lg:py-50 " >
+    <section id="hero" className=" flex flex-col justify-center items-center pt-25 gap-25 mb-40 lg:flex-row lg:px-0 lg:py-50 " >
       <Avatar/>
       <div className="flex flex-col justify-center items-center">
         <div className=" flex flex-col mb-10 justify-center items-center text-center lg:text-left lg:items-start">
