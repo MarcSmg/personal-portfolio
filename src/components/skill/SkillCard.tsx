@@ -29,21 +29,21 @@ const SkillCard = ({ children, skill, index }: SkillProps) => {
       className={`
     ${hoverStyles} ${isVisible ? 'animate-fade-in-up' : 'translate-y-20'}
     opacity-0 
-    flex gap-5 items-center justify-between text-center bg-ui-surface border border-brand-muted p-5 px-8 rounded-lg w-full h-fit 
+    flex gap-10 items-center justify-between text-center bg-ui-surface border border-brand-muted py-7 px-10 rounded-xl w-full h-fit 
     transition-all duration-300 [animation-delay:var(--delay)]
   `}>
-        <span><Icon name={skill.name} /></span>
-      <span className="flex flex-col gap-1 justify-start items-start w-full">
+      <span><Icon size={15} name={skill.name} /></span>
+      <span className="flex flex-col gap-2 justify-start items-start w-full">
         <p className="text-xl justify-center content-center">{skill.name}</p>
         <span>{children}</span>
-      {skill.level &&
-        <div className="w-full flex items-center justify-center gap-4">
-          <div className="h-2 w-full rounded-full bg-brand-muted">
-            <div className="rounded-full bg-brand h-full transition-all duration-1000" style={{ width: `${level}%` }}></div>
+        {skill.level &&
+          <div className="w-full flex items-center justify-center gap-4">
+            <div className="h-2 flex-1 rounded-full bg-brand-muted">
+              <div className="rounded-full bg-brand h-full transition-all duration-1000" style={{ width: `${level}%` }}></div>
+            </div>
+            <span>{skill.level} %</span>
           </div>
-          <span>{skill.level}%</span>
-        </div>
-      }
+        }
       </span>
 
     </div>

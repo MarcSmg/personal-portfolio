@@ -7,7 +7,8 @@ import { FaGithub } from "react-icons/fa";
 interface ProjectProps {
   project: ProjectContent,
   onOpenDetails: () => void,
-  onCloseDetails: () => void
+  onCloseDetails: () => void,
+  children?: React.ReactNode;
 }
 
 const statuses = {
@@ -25,25 +26,26 @@ const ProjectCard = ({ project, onOpenDetails }: ProjectProps) => {
       <div ref={ref} className={` 
           ${isVisible ? 'animate-fade-in-up' : 'translate-y-20'}
           opacity-0
-          bg-ui-surface border border-brand-muted p-5 rounded-2xl
+          w-full h-full
+          bg-ui-surface border border-brand-muted px-5 py-10 rounded-2xl
           shadow-brand-emphasis
           hover:-translate-y-1 hover:shadow-lg/90 transition-all duration-300
           `
       }>
-        <div className="flex flex-col gap-2">
-          <div>
-            <h3>{project.name} <span className="text-sm">({statuses[project.status]})</span></h3>
-            <br />
-            <p>{project.headline}</p>
-            <p>{project.description}</p>
-          </div>
+        <div className="flex flex-col gap-2 h-full justify-between">
+          <div className="flex flex-col gap-2">
 
-          <div className="flex gap-5 w-fit py-3">
-            {project.tech.map((t) => <span className="bg-brand-muted px-2
+            <div>
+              <h3>{project.name} <span className="text-sm">({statuses[project.status]})</span></h3>
+              <br />
+              <p>{project.headline}</p>
+              <p>{project.description}</p>
+            </div>
+
+            <div className="flex flex-wrap gap-5 w-fit py-3">
+              {project.tech.map((t) => <span className="bg-brand-muted px-2
              py-1 rounded-full text-sm" key={t}>{t}</span>)}
-          </div>
-
-          <div>
+            </div>
 
           </div>
 

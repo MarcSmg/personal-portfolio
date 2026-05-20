@@ -9,7 +9,7 @@ type ProjectDetailsProps = {
 
 export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: ProjectDetailsProps) => {
   console.log(isVisible)
-  return <div className={`relative flex flex-col size-5`} >
+  return <div className={`relative flex flex-col`} >
     {isVisible && (
       <>
         <div
@@ -27,6 +27,36 @@ export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: Projec
             md:inset-30 md:p-20
           `}
         >
+
+          <button
+            className={`
+              absolute top-5 right-5
+              flex flex-col items-center justify-center
+              size-10 cursor-pointer 
+              rounded-full
+              hover:bg-brand-muted/50
+              focus:outline-none focus-visible:ring focus-visible:ring-zinc-500
+              transition-all duration-200
+              `
+            }
+            aria-label="Close project details"
+            onClick={onClose}
+          >
+            <span
+              className={`
+                block h-0.5 w-4 mb-1
+              bg-white transition-transform duration-300
+                rotate-45 translate-y-1
+            `}
+            />
+            <span
+              className={`
+                block h-0.5 w-4 mb-1
+              bg-white transition-transform duration-300
+                -rotate-45 -translate-y-0.5
+            `}
+            />
+          </button>
           <div className="text-justify">
             <h1>{project.name}</h1>
             <h3>{project.headline}</h3>
