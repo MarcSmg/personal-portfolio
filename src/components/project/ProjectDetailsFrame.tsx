@@ -1,5 +1,5 @@
 import type { ProjectContent } from "@/content/types"
-import { memo } from "react";
+import { memo, useEffect } from "react";
 
 type ProjectDetailsProps = {
   project: ProjectContent;
@@ -7,8 +7,19 @@ type ProjectDetailsProps = {
   onClose: () => void;
 }
 
-export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: ProjectDetailsProps) => {
-  console.log(isVisible)
+export const ProjectDetailsFrame = ({ project, isVisible, onClose }: ProjectDetailsProps) => {
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isVisible]);
+
   return <div className={`relative flex flex-col`} >
     {isVisible && (
       <>
@@ -19,10 +30,8 @@ export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: Projec
 
         <div
           className={`
-            fixed inset-3 flex flex-col z-70
-            p-5
+            fixed inset-3 flex flex-col z-70 p-8
             rounded-4xl
-            overflow-y-auto
             shadow-black shadow-lg/50 bg-linear-to-r from-brand-muted from-[-150%] via-ui-surface-dark via-10% to-ui-surface
             md:inset-30 md:p-20
           `}
@@ -57,8 +66,9 @@ export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: Projec
             `}
             />
           </button>
-          <div className="text-justify">
-            <h1>{project.name}</h1>
+
+          <div className="text-justify overflow-auto no-scrollbar">
+            <h1 className="text-left">{project.name}</h1>
             <h3>{project.headline}</h3>
             <div className="h-50 w-full">
               Project image
@@ -74,4 +84,4 @@ export const ProjectDetailsFrame = memo(({ project, isVisible, onClose }: Projec
       </>)
     }
   </div>
-});
+};
