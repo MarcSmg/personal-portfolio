@@ -16,7 +16,7 @@ const Button = ({ variant = "default", children, styles = "", onClick }: ButtonP
     const variantStyles: Record<ButtonVariant, string> = {
         "default": "",
         "primary": "bg-accent hover:bg-brand-emphasis",
-        "secondary": "bg-brand-muted"
+        "secondary": "bg-brand-muted border border-brand-muted hover:bg-ui-surface text-white"
     }
 
     return (

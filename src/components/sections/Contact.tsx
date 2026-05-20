@@ -21,7 +21,7 @@ const Contact = () => {
         </ContactLink>
 
         <ContactLink styles={`${contactLinkStyles}`} url={contactContent.linkedin}>
-          <FaLinkedin className="fill-[#0077B5] rounded-lg p-0.25 stroke-white bg-white stroke-2" size={40}/> 
+          <FaLinkedin className="fill-[#0077B5] rounded-lg p-px stroke-white bg-white stroke-2" size={40}/> 
           <span>Let's connect on LinkedIn</span>
           <ArrowUpRight/>
         </ContactLink>
@@ -34,7 +34,7 @@ const Contact = () => {
 
         <ContactLink styles={`${contactLinkStyles}`} url={contactContent.whatsapp}>
           <Icon style="" name="whatsapp" /> 
-          <span>Whatsapp</span>
+          <span>WhatsApp</span>
           <ArrowUpRight/>
         </ContactLink>
       </div>
