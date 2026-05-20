@@ -29,7 +29,7 @@ const SkillCard = ({ children, skill, index }: SkillProps) => {
       className={`
     ${hoverStyles} ${isVisible ? 'animate-fade-in-up' : 'translate-y-20'}
     opacity-0 
-    flex gap-10 items-center justify-between text-center bg-ui-surface border border-brand-muted py-7 px-10 rounded-xl w-full h-fit 
+    flex gap-5 items-center justify-between text-center bg-ui-surface border border-brand-muted py-7 px-5 rounded-xl w-full h-fit 
     transition-all duration-300 [animation-delay:var(--delay)]
   `}>
       <span><Icon size={15} name={skill.name} /></span>
