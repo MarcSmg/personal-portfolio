@@ -5,6 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { useInView } from "@/hooks/useInVIew";
+import Noise from "../ui/Noise";
 const Avatar = () => {
     const {content} = useContent();
     const contactContent = content.contactContent;
@@ -13,9 +14,16 @@ const Avatar = () => {
     const {ref, isVisible} = useInView();
 
   return (
-    <div ref={ref} className={` ${isVisible ? 'animate-fade-in-right' : ''} flex flex-col w-[90%] justify-center items-center gap-4 px-5 py-7 opacity-0 bg-linear-to-r from-brand-muted from-[-150%] to-ui-surface rounded-2xl lg:w-[40%]`}>
+    <div ref={ref} className={` ${isVisible ? 'animate-fade-in-right' : ''} relative flex flex-col w-[90%] justify-center items-center gap-4 overflow-hidden px-5 py-7 opacity-0 bg-linear-to-r from-brand-muted from-[-150%] to-ui-surface rounded-2xl lg:w-[40%]`}>
+      <Noise
+        patternSize={400}
+        patternScaleX={1}
+        patternScaleY={1}
+        patternRefreshInterval={2}
+        patternAlpha={12}
+      />
       
-      <img className="rounded-2xl size-[80%] object-cover lg:size-80" src={pfp} alt="" />
+      <img className="relative rounded-2xl size-[80%] object-cover lg:size-80" src={pfp} alt="" />
       
       <ContactLink styles="relative px-3 py-3 flex items-center justify-between gap-2 before:absolute before:inset-10 before:rounded-lg before:bg-accent/80 before:opacity-0 before:transition-all hover:before:opacity-100 hover:before:inset-0 duration-100" url={contactContent.email}>
         
