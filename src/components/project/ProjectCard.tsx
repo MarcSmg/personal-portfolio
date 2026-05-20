@@ -12,8 +12,8 @@ interface ProjectProps {
 }
 
 const statuses = {
-  "planned": "planned",
-  "in-progress": "in progress",
+  "planned": "Planned",
+  "in-progress": "In progress",
   "completed": "Completed"
 };
 
@@ -27,16 +27,16 @@ const ProjectCard = ({ project, onOpenDetails }: ProjectProps) => {
           ${isVisible ? 'animate-fade-in-up' : 'translate-y-20'}
           opacity-0
           w-full h-full
-          bg-ui-surface border border-brand-muted px-5 py-10 rounded-2xl
-          shadow-brand-emphasis
-          hover:-translate-y-1 hover:shadow-lg/90 transition-all duration-300
-          `
-      }>
+          bg-ui-surface border outline-5 border-brand-muted px-5 py-10 rounded-2xl
+          shadow-brand-emphasis/
+          hover:-translate-y-1/ hover:shadow-lg/90 transition-all duration-300
+          `}
+      >
         <div className="flex flex-col gap-2 h-full justify-between">
           <div className="flex flex-col gap-2">
 
             <div>
-              <h3>{project.name} <span className="text-sm">({statuses[project.status]})</span></h3>
+              <h2 className="font-semibold text-brand">{project.name} <span className="text-sm">({statuses[project.status]})</span></h2>
               <br />
               <p>{project.headline}</p>
               <p>{project.description}</p>

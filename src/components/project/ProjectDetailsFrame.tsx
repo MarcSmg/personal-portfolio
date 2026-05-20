@@ -16,7 +16,7 @@ export const ProjectDetailsFrame = ({ project, isVisible, onClose }: ProjectDeta
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = originalOverflow;
+      document.body.style.overflow = originalOverflow; 
     };
   }, [isVisible]);
 
@@ -42,7 +42,7 @@ export const ProjectDetailsFrame = ({ project, isVisible, onClose }: ProjectDeta
               absolute top-5 right-5
               flex flex-col items-center justify-center
               size-10 cursor-pointer 
-              rounded-full
+              bg-ui-surface rounded-full
               hover:bg-brand-muted/50
               focus:outline-none focus-visible:ring focus-visible:ring-zinc-500
               transition-all duration-200
@@ -67,7 +67,7 @@ export const ProjectDetailsFrame = ({ project, isVisible, onClose }: ProjectDeta
             />
           </button>
 
-          <div className="text-justify overflow-auto no-scrollbar">
+          <div className="text-justify overflow-auto no-scrollbar rounded-2xl">
             <h1 className="text-left">{project.name}</h1>
             <h3>{project.headline}</h3>
             <div className="h-50 w-full">

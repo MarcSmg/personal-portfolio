@@ -3,6 +3,8 @@ import type { ProjectContent } from "../../content/types";
 import { useContent } from "../../context/ContentContext"
 import ProjectCard from "../project/ProjectCard";
 import { ProjectDetailsFrame } from "../project/ProjectDetailsFrame";
+import MagicBento from "../ui/MagicBento";
+import ScrollFloat from "../ui/ScrollFloat";
 
 const Projects = () => {
   const { content } = useContent();
@@ -12,26 +14,39 @@ const Projects = () => {
 
   return (
     <section id="projects" className=" flex flex-col mb-40 scroll-m-10 md:mb-60">
-      <h1 className="flex gap-2">Recent<span className="mb-10 bg-linear-to-r from-brand to-brand-emphasis text-transparent bg-clip-text inline-block w-fit">Projects</span></h1>
-      <div className=" grid lg:grid-cols-2 gap-5 place-items-center p-2">
+      <ScrollFloat containerClassName="flex gap-2">Recent<span className="mb-10 text-brand inline-block w-fit">Projects</span></ScrollFloat>
+      <MagicBento
+        className="lg:grid-cols-2 gap-5 place-items-center p-2"
+        enableStars={false}
+        enableSpotlight={true}
+        enableBorderGlow={true}
+        enableTilt={false}
+        enableMagnetism={false}
+        clickEffect={false}
+        spotlightRadius={400}
+        particleCount={12}
+        glowColor="71, 140, 251"
+      >
         {projectsContent.map((p: ProjectContent) => {
-          return (<div className="w-full h-full" key={p.slug}>
+          return (
             <ProjectCard
               key={p.slug}
               project={p}
               onOpenDetails={() => setActiveProject(p.slug)}
               onCloseDetails={() => setActiveProject("")}
             ></ProjectCard>
-            <ProjectDetailsFrame
-              project={p}
-              isVisible={activeProject === p.slug}
-              onClose={() => setActiveProject("")}
-            />
-          </div>
           )
         }
         )}
-      </div>
+      </MagicBento>
+      {projectsContent.map((p: ProjectContent) => (
+        <ProjectDetailsFrame
+          key={p.slug}
+          project={p}
+          isVisible={activeProject === p.slug}
+          onClose={() => setActiveProject("")}
+        />
+      ))}
     </section>
   )
 }
