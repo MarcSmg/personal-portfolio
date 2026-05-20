@@ -1,5 +1,5 @@
 import type { ProjectContent } from "@/content/types"
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 
 type ProjectDetailsProps = {
   project: ProjectContent;
