@@ -39,7 +39,7 @@ const SkillCard = ({ children, skill, index }: SkillProps) => {
         {skill.level &&
           <div className="w-full flex items-center justify-center gap-4">
             <div className="h-2 flex-1 rounded-full bg-brand-muted">
-              <div className="rounded-full bg-brand h-full transition-all duration-1000" style={{ width: `${level}%` }}></div>
+              <div className="rounded-full bg-brand h-full transition-all duration-1500" style={{ width: `${level}%` }}></div>
             </div>
             <span>{skill.level} %</span>
           </div>

@@ -3,6 +3,7 @@ import { useContent } from "../../context/ContentContext"
 import ContactLink from "../ui/ContactLink";
 import Icon from "../ui/Icon";
 import { FaLinkedin } from "react-icons/fa";
+import ScrollFloat from "../ui/ScrollFloat";
 
 const Contact = () => {
   const {content} = useContent();
@@ -12,7 +13,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="w-full pb-10">
-      <h1 className="mb-10 flex flex-col gap-1">{contactContent.callToAction.question}<span className="mb-10 bg-linear-to-r from-brand to-brand-emphasis text-transparent bg-clip-text inline-block w-fit">{contactContent.callToAction.action}</span></h1>
+      <ScrollFloat containerClassName="mb-10 flex flex-col gap-1">{contactContent.callToAction.question}<span className="mb-10 text-brand inline-block w-fit">{contactContent.callToAction.action}</span></ScrollFloat>
       <div className="grid gap-5 lg:w-100">
         <ContactLink styles={`${contactLinkStyles}`} url={contactContent.email}>
           <Icon style="" name="gmail"/>

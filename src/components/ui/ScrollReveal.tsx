@@ -22,7 +22,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   scrollContainerRef,
   enableBlur = true,
   baseOpacity = 0.1,
-  baseRotation = 3,
+  baseRotation = 5,
   blurStrength = 4,
   containerClassName = '',
   textClassName = '',
@@ -53,7 +53,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       el,
       { transformOrigin: '0% 50%', rotate: baseRotation },
       {
-        ease: 'none',
+        ease: 'easeOut',
         rotate: 0,
         scrollTrigger: {
           trigger: el,
@@ -110,7 +110,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   return (
     <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>
-      <p className={`leading-[1.5] font-semibold ${textClassName}`}>{splitText}</p>
+      <p className={`leading-[1.5] ${textClassName}`}>{splitText}</p>
     </h2>
   );
 };
