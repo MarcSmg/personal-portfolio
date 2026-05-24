@@ -32,12 +32,9 @@ const clippedTextStyle: CSSProperties = {
   WebkitTextFillColor: 'transparent'
 };
 
-const getInitialCharStyle = (usesClippedText: boolean): CSSProperties => ({
+const getHiddenCharStyle = (usesClippedText: boolean): CSSProperties => ({
   ...(usesClippedText ? clippedTextStyle : inheritedTextStyle),
-  opacity: 0,
-  transform: 'translateY(120%) scale(0.7, 2.3)',
-  transformOrigin: '50% 0%',
-  willChange: 'opacity, transform'
+  opacity: 0
 });
 
 const splitTextNode = (text: string, keyPrefix: string, usesClippedText = false) => (
@@ -50,7 +47,7 @@ const splitTextNode = (text: string, keyPrefix: string, usesClippedText = false)
       <span
         className={`scroll-float-char inline-block ${usesClippedText ? 'text-transparent bg-clip-text' : ''}`}
         key={`${keyPrefix}-${index}`}
-        style={getInitialCharStyle(usesClippedText)}
+        style={getHiddenCharStyle(usesClippedText)}
       >
         {char === ' ' ? '\u00A0' : char}
       </span>
