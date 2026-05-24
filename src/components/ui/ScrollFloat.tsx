@@ -15,6 +15,11 @@ interface ScrollFloatProps {
   stagger?: number;
 }
 
+const defaultScrollStart = 'center bottom+=50%';
+const defaultScrollEnd = 'bottom bottom-=40%';
+const mobileScrollStart = 'top 85%';
+const mobileScrollEnd = 'bottom 55%';
+
 const inheritedTextStyle: CSSProperties = {
   color: 'inherit'
 };
@@ -77,8 +82,8 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
   containerClassName = '',
   animationDuration = 1,
   ease = 'back.inOut(2)',
-  scrollStart = 'center bottom+=50%',
-  scrollEnd = 'bottom bottom-=40%',
+  scrollStart = defaultScrollStart,
+  scrollEnd = defaultScrollEnd,
   stagger = 0.03
 }) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
@@ -91,6 +96,10 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
 
     const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
     const charElements = el.querySelectorAll('.scroll-float-char');
+    const isUsingDefaultStart = scrollStart === defaultScrollStart;
+    const isUsingDefaultEnd = scrollEnd === defaultScrollEnd;
+    const isMobileViewport = () => window.matchMedia('(max-width: 639px)').matches;
+    let isActive = true;
 
     const animation = gsap.fromTo(
       charElements,
@@ -113,14 +122,20 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: scrollStart,
-          end: scrollEnd,
-          scrub: true
+          start: () => (isUsingDefaultStart && isMobileViewport() ? mobileScrollStart : scrollStart),
+          end: () => (isUsingDefaultEnd && isMobileViewport() ? mobileScrollEnd : scrollEnd),
+          scrub: true,
+          invalidateOnRefresh: true
         }
       }
     );
 
+    document.fonts?.ready.then(() => {
+      if (isActive) ScrollTrigger.refresh();
+    });
+
     return () => {
+      isActive = false;
       animation.scrollTrigger?.kill();
       animation.kill();
     };
