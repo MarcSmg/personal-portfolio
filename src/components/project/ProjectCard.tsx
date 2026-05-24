@@ -37,8 +37,8 @@ const ProjectCard = ({ project, onOpenDetails }: ProjectProps) => {
 
             <div>
               <h2 className="font-semibold text-brand">{project.name} <span className="text-sm">({statuses[project.status]})</span></h2>
-              <br />
               <p>{project.headline}</p>
+              <br />
               <p>{project.description}</p>
             </div>
 
