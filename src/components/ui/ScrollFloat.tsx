@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, type CSSProperties, type ReactNode, type RefObject } from 'react';
+import React, { useLayoutEffect, useMemo, useRef, type CSSProperties, type ReactNode, type RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -90,7 +90,7 @@ const ScrollFloat: React.FC<ScrollFloatProps> = ({
 
   const splitText = useMemo(() => splitNode(children), [children]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
